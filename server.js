@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-
+const argv = require('optimist').argv
 // Create express app
 const app = express();
 
@@ -20,11 +20,12 @@ app.get('*', (req, res) => {
 });
 
 // Get port from envirenment and store in express
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '80';
 app.set('port', port);
 
-// Create http-server 
-const server = http.createServer(app);
-server.listen(port, () => {
-    console.log('Server running on localhost:', port);
-})
+// Create http-server;
+
+app.listen(port,argv.ip);
+console.log('app listening on port ', port); 
+
+
