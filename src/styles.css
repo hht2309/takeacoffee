@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+
+.artist-header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.thumb-container {
+    text-align: center;
+    /* align the inline(-block) elements horizontally */
+    font: 0/0 a;
+    /* remove the gap between inline(-block) elements */
+}
+
+.thumb-container:before {
+    /* create a full-height inline block pseudo=element */
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    /* vertical alignment of the inline element */
+    height: 100%;
+}
+
+.thumb-container-element {
+    display: inline-block;
+    vertical-align: middle;
+    /* vertical alignment of the inline element */
+    font: 16px/1 Arial sans-serif;
+    /* <-- reset the font property */
+}
+
+.artist-thumb {
+    width: 100px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.artist-album .well {
+    margin-bottom: 20px;
+    overflow: auto;
+    min-height: 400px;
+}
+
+.album {
+    text-align: center;
+    background: #333;
+    padding: 0px 20px;
+    border: #666 1px solid;
+}
+
+.album-thumb {
+    width: 100%;
+}
+
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+/*
+ * Styles copied from the Grid example to make grid rows & columns visible.
+ */
+
+[class*="col-"]:not(.album-container) {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #eee;
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86, 61, 124, .2);
+}

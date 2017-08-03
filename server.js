@@ -4,7 +4,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 const argv = require('optimist').argv
-// Create express app
+    // Create express app
 const app = express();
 
 // Parsers for POST data
@@ -25,7 +25,5 @@ app.set('port', port);
 
 // Create http-server;
 
-app.listen(port,argv.ip);
-console.log('app listening on port ', port); 
-
-
+app.listen(port, argv.ip);
+console.log('app listening on port ', port);
