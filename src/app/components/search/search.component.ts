@@ -15,16 +15,12 @@ export class SearchComponent  {
   constructor(private spotifyService: SpotifyService){
     
   }
-  searchMusic() {
-    this.spotifyService.getToken()
+
+  searchMusic(){
+    this.spotifyService.searchMusic(this.searchStr)
     .subscribe(
-      results => {
-        this.spotifyService.searchMusic(this.searchStr, 'artist', results.access_token)
-        .subscribe(
-          results=>{
-            this.searchResult_artist = results.artists.items;
-          }
-        )
+      results=>{
+        this.searchResult_artist = results.artists.items;
       }
     )
   }

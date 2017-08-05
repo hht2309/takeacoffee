@@ -20,16 +20,11 @@ export class AlbumComponent implements OnInit {
             .map(params => params['id'])
             .subscribe(id => {
                 this.id = id; 
-                this.spotifyService.getToken()
-                    .subscribe(
-                    token => {
-                        this.spotifyService.getAlbum(this.id, token.access_token)
-                        .subscribe(
-                        album=>{
-                            this.album = album;
-                            console.log(album);
-                        })
-                    });
+                this.spotifyService.getAlbum(this.id)
+                .subscribe(
+                album=>{
+                    this.album = album;
+                })
             })
     }
 }
