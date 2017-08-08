@@ -9,7 +9,7 @@ import {AlbumComponent} from './components/album/album.component';
  
 const appRoutes: Routes = [
     {
-        path: 'home', 
+        path: '', 
         component: HomeComponent
     }, 
     {
