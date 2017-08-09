@@ -12,11 +12,12 @@ import { NavbarComponent} from './components/navbar/navbar.component';
 import {SearchComponent} from './components/search/search.component';
 import {ArtistComponent} from './components/artist/artist.component';
 import {AlbumComponent} from './components/album/album.component';
+import {NotFoundComponent} from './components/notFound/notFound.component';
 import {routing} from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, HomeComponent, AboutComponent, SearchComponent, ArtistComponent, AlbumComponent
+    AppComponent, NavbarComponent, HomeComponent, AboutComponent, SearchComponent, ArtistComponent, AlbumComponent, NotFoundComponent
   ],
   imports: [
     BrowserModule,

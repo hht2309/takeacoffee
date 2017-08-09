@@ -6,6 +6,7 @@ import {AboutComponent} from './components/about/about.component';
 import {SearchComponent} from './components/search/search.component'; 
 import {ArtistComponent} from './components/artist/artist.component';
 import {AlbumComponent} from './components/album/album.component';
+import {NotFoundComponent} from './components/notFound/notFound.component';
  
 const appRoutes: Routes = [
     {
@@ -27,7 +28,11 @@ const appRoutes: Routes = [
     {
         path: 'album/:id', 
         component: AlbumComponent
-    }
+    }, 
+    {
+        path: '**', 
+        component: NotFoundComponent
+    }, 
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
