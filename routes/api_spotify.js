@@ -21,9 +21,9 @@ var api_spotify = {
     },
 
     // search music by artist 
-    searchMusicByArtist: function(name, callback) {
+    searchMusicByArtist: function(name, type, callback) {
         this.getToken(function(token) {
-            var searchUrl = 'https://api.spotify.com/v1/search?query=' + name + '&offset=0&limit=10&type=artist';
+            var searchUrl = 'https://api.spotify.com/v1/search?query=' + name + '&offset=0&limit=10&type=' + type;
             var request = require('request');
             var options = {
                 url: searchUrl,

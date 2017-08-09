@@ -201,6 +201,12 @@ span {
     padding-right: 300px;
 }
 
+.main-wrapper:hover {
+    -moz-box-shadow: 0 0 20px #42A8C0;
+    -webkit-box-shadow: 0 0 20px #42A8C0;
+    box-shadow: 0 0 20px #42A8C0;
+}
+
 .main-wrapper .section-title {
     text-transform: uppercase;
     font-size: 20px;

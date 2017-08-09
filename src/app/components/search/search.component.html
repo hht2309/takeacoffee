@@ -1,12 +1,23 @@
-<h4> Find some music !</h4>
+<h4 style="margin-bottom: 30px"> Take a <span class="fa fa-coffee" aria-hidden="true"></span> and find yourself in the music !</h4>
 <form>
     <div class="form-group">
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" (keyup)="searchMusic()" type="text" name="searchStr" [(ngModel)]="searchStr" class="form-control" placeholder="Search music ..." />
+        <label style="margin-right: 20px"> Search by </label>
+        <label class="radio-inline">
+      <input type="radio" name="optradio" checked="checked" (click)="changeSearchTypeToArtist()">Artist
+    </label>
+        <label class="radio-inline">
+      <input type="radio" name="optradio" (click)="changeSearchTypeToTrack()">Track
+    </label>
+
+    </div>
+    <div class="form-group">
+        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" (keyup)="searchMusic()" type="text" name="searchStr" [(ngModel)]="searchStr" class="form-control" placeholder="Search music by {{type_artist ? 'artist':'track'}} ..."
+        />
     </div>
 
 </form>
 
-<div *ngIf="searchResult_artist">
+<div *ngIf="searchResult_artist && type_artist">
     <div *ngFor="let artist of searchResult_artist">
         <div class="row">
             <div class="col-md-12">
@@ -15,6 +26,32 @@
                     <div>
                         <strong> Genres: </strong>
                         <span *ngFor="let genre of artist.genres">{{genre}}, </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div *ngIf="searchResult_track && !type_artist">
+    <div *ngFor="let track of searchResult_track">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-res well">
+                    <h4>{{track.name}}</h4>
+                    <div>
+                        <strong>Artist: </strong>
+                        <span *ngFor="let artist of track.artists"><a routerLink="/artist/{{artist.id}}">{{artist.name}}, </a></span>
+                    </div>
+                    <div style="margin-bottom: 15px">
+                        <strong>Album: </strong>
+                        <span><a routerLink="/album/{{track.album.id}}">{{track.album.name}}</a></span>
+                    </div>
+                    <div>
+                        <a [ngStyle]="track.preview_url?{'pointer-events': 'auto'}:{'pointer-events': 'none', 'color': '#117ec6'}" href="{{track.preview_url}}" target="_blank">Preview Track {{track.preview_url?'':'(n/a)'}}</a>
+                        <a style="padding-left: 20px" href="{{track.external_urls.spotify}}" target="_blank">Listen on Spotify</a>
                     </div>
                 </div>
             </div>

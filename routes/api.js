@@ -6,7 +6,7 @@ var api_spotify = require('./api_spotify');
 
 // get search artist request from browser, return the result if found
 router.post('/search', (req, res, next) => {
-    api_spotify.searchMusicByArtist(req.body.artistName, function(body) {
+    api_spotify.searchMusicByArtist(req.body.artistName, req.body.type, function(body) {
         res.json(body);
     });
 });

@@ -28,10 +28,11 @@ export class SpotifyService {
         .map(res=> res.json());
     }
 
-    searchMusic(str: string){
+    searchMusic(str: string, type_artist: boolean){
         var headers = new Headers(); 
         var opt = {
-            artistName: str
+            artistName: str, 
+            type: type_artist?'artist':'track'
         }
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/search', JSON.stringify(opt),  {headers: headers})
