@@ -1,3 +1,6 @@
+<link id="theme-style" rel="stylesheet" href="assets/css/style_rating.css">
+
+
 <h4 style="margin-bottom: 30px"> Take <span class="fa fa-coffee" aria-hidden="true"></span> and find yourself in the music !</h4>
 <form>
     <div class="form-group">
@@ -41,6 +44,14 @@
             <div class="col-md-12">
                 <div class="search-res well">
                     <h4>{{track.name}}</h4>
+
+                    <div>
+                        <strong>Rating: </strong>
+                        <span class="star-rating" *ngFor="let i of Arr(Math.round(track.popularity/10)).fill(1)"><i class="fa fa-star" aria-hidden="true"></i></span>
+                        <span class="star-rating" *ngFor="let i of Arr(10 - Math.round(track.popularity/10)).fill(1)"><i class="fa fa-star-o" aria-hidden="true"></i></span>
+                    </div>
+
+
                     <div>
                         <strong>Artist: </strong>
                         <span *ngFor="let artist of track.artists"><a routerLink="/artist/{{artist.id}}">{{artist.name}}, </a></span>

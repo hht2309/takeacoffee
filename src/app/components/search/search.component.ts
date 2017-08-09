@@ -14,8 +14,12 @@ export class SearchComponent  {
   searchResult_artist : Artist[];
   searchResult_track: Track[]; 
   type_artist: boolean; 
+  Math: any; 
+  Arr: any;
 
   constructor(private spotifyService: SpotifyService){
+    this.Math = Math; 
+    this.Arr = Array; 
     this.type_artist = true; 
   }
 
